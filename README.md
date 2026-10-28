@@ -1,36 +1,20 @@
-# Football Center frontend
+# Football Center API
 
-React/Vite dashboard connected directly to the hosted Football Center API. This folder contains only the frontend; no local server or API key is required.
+Backend checkout for [football-center](https://github.com/tabreezsajjad/football-center/tree/backend), on the backend branch. The frontend lives in the sibling football-center folder on main.
 
-## Run
+Live API: https://football-center-api.onrender.com/api
+Health: https://football-center-api.onrender.com/api/health
 
-Requires Node.js 22.19+.
+## Development
 
-```sh
-npm install
-npm run dev
-```
-
-Open http://localhost:5173. The default API URL is https://football-center-api.onrender.com/api. An optional ignored .env.local can override VITE_API_BASE_URL; .env.example contains the hosted default. Restart Vite after changing environment settings.
-
-npm run build creates dist/. npm run preview previews the built frontend against the hosted API. There is no localhost API proxy or combined server launcher.
-
-## Backend location
-
-The backend lives in the sibling folder ../football-center-api on the backend branch of [the same GitHub repository](https://github.com/tabreezsajjad/football-center/tree/backend). This frontend checkout uses main. Render tracks backend, so frontend commits do not redeploy the API. Do not merge the two branch trees as an ordinary feature branch.
-
-Backend code, secrets, nodemon, tests, deployment configuration, and upload packages live in that sibling checkout. To develop it locally, run npm run dev from ../football-center-api. Only then, if desired, override this frontend's VITE_API_BASE_URL with http://127.0.0.1:5000/api. Keep FOOTBALL_DATA_API_KEY in the backend environment only.
+Requires Node.js 22.19+. Install dependencies with npm install and npm install --prefix server, then run npm run dev. Nodemon watches the backend. Local defaults use 127.0.0.1:5000. The ignored server/.env contains FOOTBALL_DATA_API_KEY; see server/.env.example for options. Never put the key in frontend code.
 
 ## Checks
 
-```sh
-npm run check
-```
+Run npm run check for formatting, lint and backend tests. Tests mock upstream providers and do not consume the football quota. npm start runs the API without nodemon.
 
-Runs formatting, lint, frontend API/calendar/refresh tests, and the production build. Backend tests run independently in the sibling checkout. Shared crest URL validation is a small independent copy in each checkout.
+## Deployment
 
-## Data updates
+Render tracks the backend branch, installs with npm ci --prefix server --omit=dev, and starts with npm start --prefix server. Keep the Render root directory empty because server modules import shared/crests.js. See DEPLOYMENT.md for details. Frontend-only commits on main do not deploy this service.
 
-Visible, online match and table screens check every 5 minutes and retain their previous list during refreshes. The backend caches league fixtures for 10 minutes, standings for 15 minutes, and supplemental cup/Nations League listings for 30 minutes. Scores can be delayed. India streaming partners are manually reviewed and become unconfirmed after their review date. The UI shows source timestamps and explains this under How updates work.
-
-Render's free service may take 50 seconds or more to wake after inactivity. The frontend allows up to 90 seconds for HTTPS API requests. The frontend itself remains local until separately hosted; any new frontend origin must be added to the backend's CLIENT_ORIGIN setting.
+Fixtures and standings use football-data.org's free coverage. ESPN public scoreboards supplement domestic cups and Nations League as best-effort listings. Requests are cached and rate-limited; source timestamps and incomplete coverage are returned with the data. India streaming information in server/india-broadcasts.js needs manual review and expires after its review deadline.

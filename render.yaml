@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: football-center-api
+    branch: backend
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci --prefix server --omit=dev
+    startCommand: npm start --prefix server
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 24.22.1
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: CLIENT_ORIGIN
+        value: http://localhost:5173,http://127.0.0.1:5173
+      - key: FOOTBALL_DATA_API_KEY
+        sync: false

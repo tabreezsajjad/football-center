@@ -1,0 +1,8 @@
+{
+  "watch": ["*.js", "../shared/*.js", ".env", "package.json"],
+  "ext": "js,json,env",
+  "ignore": ["node_modules/**"],
+  "exec": "node --use-system-ca index.js",
+  "delay": 500,
+  "signal": "SIGTERM"
+}
