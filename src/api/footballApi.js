@@ -1,4 +1,6 @@
-const API_BASE_URL = (import.meta.env?.VITE_API_BASE_URL || '/api').replace(/\/$/, '');
+const API_BASE_URL = (
+  import.meta.env?.VITE_API_BASE_URL || 'https://football-center-api.onrender.com/api'
+).replace(/\/$/, '');
 // Free hosts can take over a minute to wake after inactivity.
 const REQUEST_TIMEOUT_MS = API_BASE_URL.startsWith('https://') ? 90000 : 20000;
 

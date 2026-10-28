@@ -7,10 +7,10 @@ afterEach(() => {
   globalThis.fetch = originalFetch;
 });
 
-test('loads clubs using a same-origin request', async () => {
+test('loads clubs directly from the hosted API by default', async () => {
   const clubs = [{ id: 1, name: 'Arsenal', league: 'Premier League' }];
   globalThis.fetch = async (url, options) => {
-    assert.equal(url, '/api/clubs');
+    assert.equal(url, 'https://football-center-api.onrender.com/api/clubs');
     assert.ok(options.signal instanceof AbortSignal);
     return Response.json({ clubs });
   };

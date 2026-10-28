@@ -24,7 +24,7 @@ export default defineConfig([
     languageOptions: { globals: { URL: 'readonly' } },
   },
   {
-    files: ['server/**/*.js', 'tests/**/*.js', '*.config.js'],
+    files: ['tests/**/*.js', '*.config.js'],
     languageOptions: { globals: globals.node },
   },
 ]);
