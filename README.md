@@ -2,7 +2,7 @@
 
 Football fixtures, club competitions, and league tables using football-data.org's free plan.
 
-Backend hosting instructions and the free Render configuration are in [DEPLOYMENT.md](DEPLOYMENT.md). Deployment requires a GitHub source repository and a connected Render account; no live deployment URL exists until those steps succeed.
+The backend is hosted at [football-center-api.onrender.com](https://football-center-api.onrender.com/api/health) on Render's free plan. Backend hosting instructions and the Render configuration are in [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## Start the whole app
 

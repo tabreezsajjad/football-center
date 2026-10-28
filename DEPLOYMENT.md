@@ -2,6 +2,16 @@
 
 This deploys only the API. The Vite frontend can keep running on localhost until it is hosted separately.
 
+## Current deployment
+
+- API base URL: `https://football-center-api.onrender.com/api`
+- Health: [public health check](https://football-center-api.onrender.com/api/health)
+- Render: [football-center-api](https://dashboard.render.com/web/srv-dbgondqfngtc73ck9e5g)
+- Source: `main` in [tabreezsajjad/football-center](https://github.com/tabreezsajjad/football-center)
+- Instance: Free, Singapore. Auto-deploy on commits is enabled.
+
+The local `.env.local` points Vite at this API. That file stays untracked. Other checkouts can copy `.env.example` and set the API URL. The API key is supplied privately in Render's environment settings.
+
 ## Source repository
 
 Source repository: [tabreezsajjad/football-center](https://github.com/tabreezsajjad/football-center). Keep `server/`, `shared/`, and `render.yaml` at the repository root. Never upload `server/.env`, `.env.local`, `artifacts/`, or `node_modules`. The frontend can live in this repository too; Render's API build installs only the server dependencies.
