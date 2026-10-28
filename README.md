@@ -15,6 +15,10 @@ Requires Node.js 22.19+. Install dependencies with npm install and npm install -
 
 Run npm run check for formatting, lint and backend tests. Tests mock upstream providers and do not consume the football quota. npm start runs the API without nodemon.
 
+## Netlify migration
+
+The Netlify Functions adapter and deployment configuration are ready. See [NETLIFY.md](NETLIFY.md) for setup, caching and verification. The frontend still uses Render until the Netlify API is deployed and verified.
+
 ## Deployment
 
 Render tracks main, installs with npm ci --prefix server --omit=dev, and starts with npm start --prefix server. Keep the Render root directory empty because server modules import shared/crests.js. See DEPLOYMENT.md for details. This repository is now backend-only. Frontend development and its repository setup are deferred.

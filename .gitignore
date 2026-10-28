@@ -26,3 +26,5 @@ artifacts/
 *.njsproj
 *.sln
 *.sw?
+
+.netlify/

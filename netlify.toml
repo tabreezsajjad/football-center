@@ -1,0 +1,17 @@
+[build]
+  command = "npm ci --prefix server --omit=dev"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "24.22.1"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  external_node_modules = ["express", "cors", "serverless-http"]
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true

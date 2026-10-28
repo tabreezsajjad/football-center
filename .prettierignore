@@ -8,3 +8,5 @@ server/package-lock.json
 .env.*
 server/.env
 server/.env.*
+
+.netlify/
