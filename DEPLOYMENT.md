@@ -1,4 +1,6 @@
-# Deploy the backend to Render
+# Render fallback deployment
+
+The active backend now runs on [Netlify Functions](https://football-center-api-tabreez.netlify.app/api/health). See [NETLIFY.md](NETLIFY.md). The Render service below remains available as a fallback; the frontend uses Netlify.
 
 This deploys only the API. The Vite frontend can keep running on localhost until it is hosted separately.
 

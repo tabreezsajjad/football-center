@@ -1,5 +1,11 @@
 # Netlify API deployment
 
+Live API: https://football-center-api-tabreez.netlify.app/api
+
+Project: https://app.netlify.com/projects/football-center-api-tabreez
+
+Verified: health/configuration, 11 clubs, club fixtures, Premier League standings, 52 Nations League fixtures, allowed-origin CORS, blocked unrelated-origin CORS, and Netlify Edge cache hits. The existing frontend now uses this API. Timings vary with connection, cold starts and provider response times.
+
 Import tabreezsajjad/football-center into a separate Netlify project using branch main. Leave the base directory empty. netlify.toml supplies the build command, public placeholder directory and Express function routing. The existing frontend is a different Netlify project and must not be replaced by this repository.
 
 Set these environment variables privately in the API project before deploying:

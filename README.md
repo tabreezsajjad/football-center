@@ -4,8 +4,8 @@ Backend for [football-center](https://github.com/tabreezsajjad/football-center),
 
 Frontend: https://endearing-kleicha-cd0f9c.netlify.app
 
-Live API: https://football-center-api.onrender.com/api
-Health: https://football-center-api.onrender.com/api/health
+Live API: https://football-center-api-tabreez.netlify.app/api
+Health: https://football-center-api-tabreez.netlify.app/api/health
 
 ## Development
 
@@ -17,7 +17,7 @@ Run npm run check for formatting, lint and backend tests. Tests mock upstream pr
 
 ## Netlify migration
 
-The Netlify Functions adapter and deployment configuration are ready. See [NETLIFY.md](NETLIFY.md) for setup, caching and verification. The frontend still uses Render until the Netlify API is deployed and verified.
+The API is deployed on Netlify Functions and the frontend uses it. Pushes to main deploy the API automatically. See [NETLIFY.md](NETLIFY.md) for setup, caching and verification. Render remains available as a fallback.
 
 ## Deployment
 
