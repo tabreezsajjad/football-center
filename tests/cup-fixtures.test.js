@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { createCupService, mergeCupFixtures } from '../server/cup-fixtures.js';
-import { buildMatchCalendar } from '../src/api/calendar.js';
 
 const now = Date.parse('2026-10-28T10:00:00Z');
 const event = {
@@ -83,23 +82,6 @@ test('deduplicates events and ignores dates outside the requested window', async
   });
   const result = await service.clubFixtures(1);
   assert.equal(result.fixtures.length, 1);
-});
-
-test('calendar export uses UTC, escapes text, and refuses unconfirmed kickoffs', () => {
-  const match = {
-    id: 1,
-    home: 'City, FC',
-    away: 'United',
-    utcDate: '2026-10-28T19:30Z',
-    status: 'TIMED',
-    competition: 'Carabao Cup',
-    venue: 'Etihad Stadium',
-  };
-  const calendar = buildMatchCalendar(match);
-  assert.match(calendar, /DTSTART:20261028T193000Z/);
-  assert.match(calendar, /SUMMARY:City\\, FC vs United/);
-  assert.match(calendar, /LOCATION:Etihad Stadium/);
-  assert.throws(() => buildMatchCalendar({ ...match, status: 'POSTPONED' }), /confirmed kickoff/);
 });
 
 test('Nations League lists national teams without a club filter and shares cached feeds', async () => {

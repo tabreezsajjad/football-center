@@ -1,6 +1,7 @@
 services:
   - type: web
     name: football-center-api
+    branch: backend
     runtime: node
     plan: free
     region: singapore
