@@ -4,6 +4,8 @@ This deploys only the API. The Vite frontend can keep running on localhost until
 
 ## Current deployment
 
+Frontend: https://endearing-kleicha-cd0f9c.netlify.app (manual Netlify upload).
+
 - API base URL: `https://football-center-api.onrender.com/api`
 - Health: [public health check](https://football-center-api.onrender.com/api/health)
 - Render: [football-center-api](https://dashboard.render.com/web/srv-dbgondqfngtc73ck9e5g)
@@ -24,19 +26,19 @@ Connect the GitHub repository to Render and create a Blueprint from `render.yaml
 
 If creating the web service manually, use:
 
-| Setting                 | Value                                          |
-| ----------------------- | ---------------------------------------------- |
-| Runtime                 | Node                                           |
-| Instance                | Free                                           |
-| Root directory          | Leave empty                                    |
-| Build command           | `npm ci --prefix server --omit=dev`            |
-| Start command           | `npm start --prefix server`                    |
-| Health check            | `/api/health`                                  |
-| `NODE_VERSION`          | `24.22.1`                                      |
-| `NODE_ENV`              | `production`                                   |
-| `HOST`                  | `0.0.0.0`                                      |
-| `CLIENT_ORIGIN`         | `http://localhost:5173,http://127.0.0.1:5173`  |
-| `FOOTBALL_DATA_API_KEY` | Set privately in Render's environment settings |
+| Setting                 | Value                                                                                      |
+| ----------------------- | ------------------------------------------------------------------------------------------ |
+| Runtime                 | Node                                                                                       |
+| Instance                | Free                                                                                       |
+| Root directory          | Leave empty                                                                                |
+| Build command           | `npm ci --prefix server --omit=dev`                                                        |
+| Start command           | `npm start --prefix server`                                                                |
+| Health check            | `/api/health`                                                                              |
+| `NODE_VERSION`          | `24.22.1`                                                                                  |
+| `NODE_ENV`              | `production`                                                                               |
+| `HOST`                  | `0.0.0.0`                                                                                  |
+| `CLIENT_ORIGIN`         | `http://localhost:5173,http://127.0.0.1:5173,https://endearing-kleicha-cd0f9c.netlify.app` |
+| `FOOTBALL_DATA_API_KEY` | Set privately in Render's environment settings                                             |
 
 Render supplies `PORT`. Keep the root directory empty: server modules import `shared/crests.js` from outside `server/`. No database, disk, paid worker, or recurring job is needed. Confirm the instance is Free before creating the service. Add the deployed frontend's exact origin to `CLIENT_ORIGIN` when it is hosted, with no trailing slash.
 

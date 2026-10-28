@@ -16,6 +16,6 @@ services:
       - key: HOST
         value: 0.0.0.0
       - key: CLIENT_ORIGIN
-        value: http://localhost:5173,http://127.0.0.1:5173
+        value: http://localhost:5173,http://127.0.0.1:5173,https://endearing-kleicha-cd0f9c.netlify.app
       - key: FOOTBALL_DATA_API_KEY
         sync: false

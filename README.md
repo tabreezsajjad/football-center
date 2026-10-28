@@ -2,6 +2,8 @@
 
 Backend for [football-center](https://github.com/tabreezsajjad/football-center), using main as its only active branch. The frontend remains in the sibling football-center folder for later work; its earlier source is also preserved in commit bb83850.
 
+Frontend: https://endearing-kleicha-cd0f9c.netlify.app
+
 Live API: https://football-center-api.onrender.com/api
 Health: https://football-center-api.onrender.com/api/health
 
