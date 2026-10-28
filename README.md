@@ -1,6 +1,6 @@
 # Football Center API
 
-Backend checkout for [football-center](https://github.com/tabreezsajjad/football-center/tree/backend), on the backend branch. The frontend lives in the sibling football-center folder on main.
+Backend for [football-center](https://github.com/tabreezsajjad/football-center), using main as its only active branch. The frontend remains in the sibling football-center folder for later work; its earlier source is also preserved in commit bb83850.
 
 Live API: https://football-center-api.onrender.com/api
 Health: https://football-center-api.onrender.com/api/health
@@ -15,6 +15,6 @@ Run npm run check for formatting, lint and backend tests. Tests mock upstream pr
 
 ## Deployment
 
-Render tracks the backend branch, installs with npm ci --prefix server --omit=dev, and starts with npm start --prefix server. Keep the Render root directory empty because server modules import shared/crests.js. See DEPLOYMENT.md for details. Frontend-only commits on main do not deploy this service.
+Render tracks main, installs with npm ci --prefix server --omit=dev, and starts with npm start --prefix server. Keep the Render root directory empty because server modules import shared/crests.js. See DEPLOYMENT.md for details. This repository is now backend-only. Frontend development and its repository setup are deferred.
 
 Fixtures and standings use football-data.org's free coverage. ESPN public scoreboards supplement domestic cups and Nations League as best-effort listings. Requests are cached and rate-limited; source timestamps and incomplete coverage are returned with the data. India streaming information in server/india-broadcasts.js needs manual review and expires after its review deadline.

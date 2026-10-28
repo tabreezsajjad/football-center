@@ -7,14 +7,14 @@ This deploys only the API. The Vite frontend can keep running on localhost until
 - API base URL: `https://football-center-api.onrender.com/api`
 - Health: [public health check](https://football-center-api.onrender.com/api/health)
 - Render: [football-center-api](https://dashboard.render.com/web/srv-dbgondqfngtc73ck9e5g)
-- Source: `backend` in [tabreezsajjad/football-center](https://github.com/tabreezsajjad/football-center)
+- Source: `main` in [tabreezsajjad/football-center](https://github.com/tabreezsajjad/football-center)
 - Instance: Free, Singapore. Auto-deploy on commits is enabled.
 
-The frontend is in the sibling football-center folder on the main branch. This backend checkout uses the backend branch. The API key stays in server/.env locally and in Render environment settings online.
+The frontend remains untouched in the sibling football-center folder for later work. This backend checkout uses main. The API key stays in server/.env locally and in Render environment settings online.
 
 ## Source repository
 
-Source repository: [tabreezsajjad/football-center, backend branch](https://github.com/tabreezsajjad/football-center/tree/backend). Keep `server/`, `shared/`, and `render.yaml` at the repository root. Never upload `server/.env`, `.env.local`, `artifacts/`, or `node_modules`. Render must track the backend branch; the main branch contains only the frontend.
+Source repository: [tabreezsajjad/football-center, main branch](https://github.com/tabreezsajjad/football-center/tree/main). Keep `server/`, `shared/`, and `render.yaml` at the repository root. Never upload `server/.env`, `.env.local`, `artifacts/`, or `node_modules`. Render must track main, which contains only the backend. Earlier frontend source is preserved in commit bb83850 and the separate local frontend folder.
 
 The package can be generated with `./scripts/package-backend.ps1`. The script prints the staging folder and ZIP path under `artifacts/`. It copies an explicit list of source/configuration files and includes no credentials. Upload the contents of that staging folder to GitHub.
 
