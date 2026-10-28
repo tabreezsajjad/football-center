@@ -6,7 +6,9 @@ $zipPath = "$bundleRoot.zip"
 if (Test-Path -LiteralPath $bundleRoot) { throw 'Package destination already exists.' }
 
 $files = @(
-    'render.yaml', 'DEPLOYMENT.md', '.gitignore',
+    'netlify.toml', 'DEPLOYMENT.md', 'NETLIFY.md', '.gitignore',
+    'package.json', 'package-lock.json', 'netlify/functions/api.js', 'public/index.html',
+    'server/netlify-handler.js',
     'server/package.json', 'server/package-lock.json', 'server/.env.example',
     'server/index.js', 'server/app.js', 'server/clubs.js',
     'server/football-data.js', 'server/cup-fixtures.js', 'server/india-broadcasts.js',
