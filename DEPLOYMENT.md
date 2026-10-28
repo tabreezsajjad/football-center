@@ -14,7 +14,7 @@ The frontend is in the sibling football-center folder on the main branch. This b
 
 ## Source repository
 
-Source repository: [tabreezsajjad/football-center](https://github.com/tabreezsajjad/football-center). Keep `server/`, `shared/`, and `render.yaml` at the repository root. Never upload `server/.env`, `.env.local`, `artifacts/`, or `node_modules`. Render must track the backend branch; the main branch contains only the frontend.
+Source repository: [tabreezsajjad/football-center, backend branch](https://github.com/tabreezsajjad/football-center/tree/backend). Keep `server/`, `shared/`, and `render.yaml` at the repository root. Never upload `server/.env`, `.env.local`, `artifacts/`, or `node_modules`. Render must track the backend branch; the main branch contains only the frontend.
 
 The package can be generated with `./scripts/package-backend.ps1`. The script prints the staging folder and ZIP path under `artifacts/`. It copies an explicit list of source/configuration files and includes no credentials. Upload the contents of that staging folder to GitHub.
 
@@ -44,7 +44,7 @@ The Blueprint requests the API key as a secret input instead of embedding it in 
 
 ## Connect the local frontend
 
-After Render supplies the actual service URL, create `.env.local` at this project's root:
+After Render supplies the actual service URL, create `.env.local` at the frontend project's root (the sibling `football-center` folder):
 
 ```dotenv
 VITE_API_BASE_URL=https://YOUR-ACTUAL-SERVICE.onrender.com/api
